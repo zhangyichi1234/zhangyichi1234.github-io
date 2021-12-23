@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+  <style type="text/css">
+  body{
+		background:url("elz/6.JPG");
+		position:relative;
+		}
+  div{
+		font-size:60px;
+		font-weight:bold;
+		text-align:center;
+		color:rgb(255,255,0);
+		}
+	div#id{
+		font-size:30px;
+		font-weight:bold;
+		text-align:center;
+		color:rgb(124,188,231);
+	}
+	h4{
+
+	 color:rgb(255,255,100);
+	 text-align:center;
+	}
+  input{
+		font-size:50px;
+		color:(250,250,250);
+		}
+  
+        
+ 
+  
+  </style>
+ </head>
+ <body>
+  <div>四六级单词大全</div>
+  <h4>20192992 张亦弛 请输入英文单词</h4>
+  
+  <input type="button" value="搜索" id="a">
+  <input type="text" value="" id="op">
+  <input type="button" value="上一个" id="prev">
+  <input type="button" value="下一个" id="next">
+  <script src="words.js">
+  <!--
+	
+  //-->
+  </script>
+
+  <script type="text/javascript">
+  <!--
+		
+		
+        var words=[];
+		var Phonetic=[];
+		var Chinese=[];
+		var word={English:"",
+				  Phonetic:"",
+				  Chinese:"",
+		};
+       
+		window.onload=function(){
+		 for(var i=0;i<en6.length;i++)
+		{
+			
+			var start=en6[i].indexOf("/");
+			words[i]=en6[i].slice(0,start);
+		}
+		var aDom=document.querySelector("input#a");
+		var prevDom=document.querySelector("input#prev");
+		var nextDom=document.querySelector("input#next");
+
+		function search(str){
+			
+			var i=0;
+			for(i=0;i<words.length;i++){
+				if(str==words[i]){
+					break;
+				}
+			}
+				var start=en6[i].indexOf("/");
+				var end=en6[i].lastIndexOf("/");
+				word.English=en6[i].slice(0,start);
+				word.Phonetic=en6[i].slice(start,end+1);
+				word.Chinese=en6[i].slice(end);
+		};
+		
+		
+		
+		aDom.onclick=function(){
+			var str=op.value;
+			var sEnglishDom=document.querySelector("h1#sEnglish");
+			var sPhoneticDom=document.querySelector("h2#sPhonetic");
+			var sChineseDom=document.querySelector("h3#sChinese");
+			search(str);
+			sEnglishDom.textContent=word.English;
+			sPhoneticDom.textContent=word.Phonetic;
+			sChineseDom.textContent=word.Chinese;
+		};
+		var n=0;
+		prevDom.onclick=function(){
+            
+			var sEnglishDom=document.querySelector("h1#sEnglish");
+			var sPhoneticDom=document.querySelector("h2#sPhonetic");
+			var sChineseDom=document.querySelector("h3#sChinese");
+			
+			n--;
+			search(words[n]);
+			sEnglishDom.textContent=word.English;
+			sPhoneticDom.textContent=word.Phonetic;
+			sChineseDom.textContent=word.Chinese;
+
+
+
+		};
+		
+        nextDom.onclick=function(){
+		
+		var sEnglishDom=document.querySelector("h1#sEnglish");
+		var sPhoneticDom=document.querySelector("h2#sPhonetic");
+		var sChineseDom=document.querySelector("h3#sChinese");
+		n++;
+		search(words[n]);
+		sEnglishDom.textContent=word.English;
+		sPhoneticDom.textContent=word.Phonetic;
+		sChineseDom.textContent=word.Chinese;
+
+		};
+		
+		
+		
+		
+		}
+			
+		
+		
+		
+		
+		
+		
+		
+		
+		
+  //-->
+  </script>
+  <div id="id" class="">
+  <h1 id="sEnglish"></h1>
+  <h2 id="sPhonetic"></h2>
+  <h3 id="sChinese"></h3>
+  <h4 id="name"></h4>
+  
+  </div> 
+  
+
+ </body>
+</html>
+
